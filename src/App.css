@@ -1,0 +1,71 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Shadows Into Light", cursive;
+}
+
+h1 {
+  font-size: 25px;
+  color: rgb(240, 233, 233);
+}
+h2 {
+  font-size: 30px;
+  color: blue;
+  line-height: 5rem;
+}
+button {
+  margin: 0 10px;
+  padding: 0 3px;
+}
+
+.jobs-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.job {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+}
+.job-text {
+  display: inline-block;
+  width: 300px;
+  margin: 0 30px;
+  color: aqua;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background-color: rgb(151, 38, 106);
+}
+.adding-section {
+  /* width: 50%; */
+}
+.App {
+  margin: auto;
+  margin-top: 10px;
+  border: solid 1px black;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0);
+  width: 600px;
+  text-align: center;
+  overflow: hidden;
+}
+.App-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-image: linear-gradient(to bottom right, #aee8f5, #56c8cf, #2fbdc6);
+  padding: 20px 60px;
+  /* background-color: black; */
+}
+.header-icon {
+  color: rgb(240, 233, 233);
+  font-size: 25px;
+}
+.job {
+  display: flex;
+}
