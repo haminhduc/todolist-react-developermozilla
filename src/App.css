@@ -41,7 +41,19 @@ button {
   background-color: rgb(151, 38, 106);
 }
 .adding-section {
-  /* width: 50%; */
+  margin: 20px;
+}
+.addTask-text-box {
+  width: 45%;
+}
+.addTask-button {
+  width: 15%;
+}
+.filter-section {
+  margin-bottom: 20px;
+}
+.filter-button {
+  width: 70px;
 }
 .App {
   margin: auto;
@@ -68,4 +80,10 @@ button {
 }
 .job {
   display: flex;
+}
+.addTask-button:hover {
+  background-color: aqua;
+}
+.addTask-button:active {
+  background-color: greenyellow;
 }

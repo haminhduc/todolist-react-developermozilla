@@ -16,19 +16,20 @@ function Form(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>
-        <label className="" htmlFor={props.id}></label>
-      </h2>
       <div className="adding-section">
         <input
+          className="addTask-text-box"
           id={props.id}
           type="text"
           name="text"
           onChange={handleChange}
           autoComplete="off"
           value={newTask}
+          placeholder="Add a new task"
         />
-        <button type="submit">Add</button>
+        <button className="addTask-button" type="submit">
+          Add
+        </button>
       </div>
     </form>
   );
