@@ -6,9 +6,27 @@ import Form from "./components/form";
 import FilterButtons from "./components/filterButtons";
 import List from "./components/list";
 
+const FILTER_MAP = {
+  All: () => true,
+  Active: (task) => !task.completed,
+  Completed: (task) => task.completed,
+};
+
+const FILTER_NAMES = Object.keys(FILTER_MAP);
+
+// App funtion
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
-
+  // filter buttons
+  const [filter, setFilter] = useState("All");
+  const filterList = FILTER_NAMES.map((name) => (
+    <FilterButtons
+      key={name}
+      name={name}
+      isPressed={name === filter}
+      setFilter={setFilter}
+    />
+  ));
   function addTask(newTask) {
     const addedTask = { name: newTask, key: nanoid(), completed: false };
     setTasks([...tasks, addedTask]);
@@ -45,7 +63,18 @@ function App(props) {
     });
     setTasks(updateTask);
   }
-  const tasklist = tasks.map((task) => (
+  // const taskList = tasks.filter(FILTER_MAP[filter]).map((task) => (
+  //   <List
+  //     id={task.id}
+  //     name={task.name}
+  //     completed={task.completed}
+  //     key={task.id}
+  //     // toggleTaskCompleted={toggleTaskCompleted}
+  //     // deleteTask={deleteTask}
+  //     editTask={editTask}
+  //   />
+  // ));
+  const taskList = tasks.map((task) => (
     <List
       key={task.key}
       id={task.key}
@@ -66,8 +95,8 @@ function App(props) {
       </header>
       <main>
         <Form addTask={addTask} />
-        <FilterButtons />
-        {tasklist}
+        {filterList}
+        {taskList}
       </main>
     </div>
   );
