@@ -14,7 +14,7 @@ const FILTER_MAP = {
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
-// App funtion
+// App function
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
   // filter buttons
@@ -63,29 +63,23 @@ function App(props) {
     });
     setTasks(updateTask);
   }
-  // const taskList = tasks.filter(FILTER_MAP[filter]).map((task) => (
-  //   <List
-  //     id={task.id}
-  //     name={task.name}
-  //     completed={task.completed}
-  //     key={task.id}
-  //     // toggleTaskCompleted={toggleTaskCompleted}
-  //     // deleteTask={deleteTask}
-  //     editTask={editTask}
-  //   />
-  // ));
-  const taskList = tasks.map((task) => (
-    <List
-      key={task.key}
-      id={task.key}
-      name={task.name}
-      completed={task.completed}
-      addTask={addTask}
-      removeTask={removeTask}
-      editTask={editTask}
-      taskComplete={handleComplete}
-    />
-  ));
+  const taskList = tasks
+    .filter(FILTER_MAP[filter])
+    .map((task) => (
+      <List
+        key={task.key}
+        id={task.key}
+        name={task.name}
+        completed={task.completed}
+        removeTask={removeTask}
+        editTask={editTask}
+        taskComplete={handleComplete}
+      />
+    ));
+
+  const tasksNoun = taskList.length !== 1 ? "tasks" : "task";
+  const headingText = `${taskList.length} ${tasksNoun} remaining`;
+
   return (
     <div className="App">
       <header className="App-header">
@@ -95,6 +89,7 @@ function App(props) {
       </header>
       <main>
         <Form addTask={addTask} />
+        <h2 id="list-heading">{headingText}</h2>
         {filterList}
         {taskList}
       </main>
